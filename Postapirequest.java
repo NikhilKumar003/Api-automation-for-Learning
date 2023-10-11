@@ -11,6 +11,7 @@ public class Postapirequest {
 	@Test
 	public void createbooking()
 	{
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 //		prepare request body
 		JSONObject booking = new JSONObject();
 		JSONObject  bookingdate = new JSONObject();
@@ -36,7 +37,7 @@ public class Postapirequest {
 		.then()
 		.assertThat()
 		.statusCode(200)
-		.body("booking.firstname",Matchers.equalTo("apiautomation"))
+		.body("booking.firstname",Matchers.equalTo("apiautomation23"))
 		.body("booking.totalprice",Matchers.equalTo(3500))
 		.body("booking.bookingdates.checkin",Matchers.equalTo("2021-03-01"));
 	}
